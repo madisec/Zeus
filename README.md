@@ -1,6 +1,12 @@
+<style>
+  #id{
+    align-items: center;
+    height: 200px;
+    width: 200px;
+</style>
 # Zeus 
 zeus is a real-time chat application
-<img src="./images/Logo.png">
+<img id="logo" src="./images/Logo.png">
 ## Preview
 <img src="./images/Overview.png">
 
