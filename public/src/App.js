@@ -5,6 +5,7 @@ import Chat from "./pages/Chat";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
 export default function App() {
+  // Insert router to source
   return (
     <BrowserRouter>
       <Routes>

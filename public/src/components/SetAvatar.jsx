@@ -20,7 +20,7 @@ export default function SetAvatar() {
     draggable: true,
     theme: "dark",
   };
-
+  // Login check for user
   useEffect(async () => {
     if (!localStorage.getItem(process.env.REACT_APP_LOCALHOST_KEY))
       navigate("/login");
@@ -33,11 +33,11 @@ export default function SetAvatar() {
       const user = await JSON.parse(
         localStorage.getItem(process.env.REACT_APP_LOCALHOST_KEY)
       );
-
+        // send avatar information to backend API 
       const { data } = await axios.post(`${setAvatarRoute}/${user._id}`, {
         image: avatars[selectedAvatar],
       });
-
+      // Send aatar data to backend API and Update user in database.
       if (data.isSet) {
         user.isAvatarImageSet = true;
         user.avatarImage = data.image;
@@ -51,7 +51,7 @@ export default function SetAvatar() {
       }
     }
   };
-
+  // Fetch  Avatar images from API and convert to base64 v
   useEffect(async () => {
     const data = [];
     for (let i = 0; i < 4; i++) {
@@ -64,6 +64,8 @@ export default function SetAvatar() {
     setAvatars(data);
     setIsLoading(false);
   }, []);
+  // Set Avatar element
+  // Show images and select for profile
   return (
     <>
       {isLoading ? (
@@ -102,14 +104,14 @@ export default function SetAvatar() {
     </>
   );
 }
-
+// SetAvatar CSS source
 const Container = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
   gap: 3rem;
-  background-color: #131324;
+  background-color: #001219;
   height: 100vh;
   width: 100vw;
 
@@ -119,7 +121,7 @@ const Container = styled.div`
 
   .title-container {
     h1 {
-      color: white;
+      color: #0a9396;
     }
   }
   .avatars {
@@ -140,12 +142,12 @@ const Container = styled.div`
       }
     }
     .selected {
-      border: 0.4rem solid #4e0eff;
+      border: 0.4rem solid #ee9b00;
     }
   }
   .submit-btn {
-    background-color: #4e0eff;
-    color: white;
+    background-color: #00b4d8;
+    color: #001219;
     padding: 1rem 2rem;
     border: none;
     font-weight: bold;
@@ -154,7 +156,7 @@ const Container = styled.div`
     font-size: 1rem;
     text-transform: uppercase;
     &:hover {
-      background-color: #4e0eff;
+      background-color: #0a9396;
     }
   }
 `;

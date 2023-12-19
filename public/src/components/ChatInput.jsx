@@ -3,7 +3,8 @@ import { BsEmojiSmileFill } from "react-icons/bs";
 import { IoMdSend } from "react-icons/io";
 import styled from "styled-components";
 import Picker from "emoji-picker-react";
-
+// Chat input component.
+// Include Emoje
 export default function ChatInput({ handleSendMsg }) {
   const [msg, setMsg] = useState("");
   const [showEmojiPicker, setShowEmojiPicker] = useState(false);
@@ -52,7 +53,7 @@ const Container = styled.div`
   display: grid;
   align-items: center;
   grid-template-columns: 5% 95%;
-  background-color: #080420;
+  background-color: #03071e;
   padding: 0 2rem;
   @media screen and (min-width: 720px) and (max-width: 1080px) {
     padding: 0 1rem;
@@ -67,13 +68,13 @@ const Container = styled.div`
       position: relative;
       svg {
         font-size: 1.5rem;
-        color: #ffff00c8;
+        color: #00b4d8;
         cursor: pointer;
       }
       .emoji-picker-react {
         position: absolute;
         top: -350px;
-        background-color: #080420;
+        background-color: #03071e;
         box-shadow: 0 5px 10px #9a86f3;
         border-color: #9a86f3;
         .emoji-scroll-wrapper::-webkit-scrollbar {
@@ -90,6 +91,7 @@ const Container = styled.div`
         }
         .emoji-search {
           background-color: transparent;
+          color: white;
           border-color: #9a86f3;
         }
         .emoji-group:before {
@@ -104,7 +106,7 @@ const Container = styled.div`
     display: flex;
     align-items: center;
     gap: 2rem;
-    background-color: #ffffff34;
+    background-color: #005f73;
     input {
       width: 90%;
       height: 60%;
@@ -127,7 +129,7 @@ const Container = styled.div`
       display: flex;
       justify-content: center;
       align-items: center;
-      background-color: #9a86f3;
+      background-color: #0a9396;
       border: none;
       @media screen and (min-width: 720px) and (max-width: 1080px) {
         padding: 0.3rem 1rem;
@@ -137,7 +139,7 @@ const Container = styled.div`
       }
       svg {
         font-size: 2rem;
-        color: white;
+        color: #001219;
       }
     }
   }

@@ -1,9 +1,14 @@
+// Chat application route
+// Axios for fetch data
+// socket.io for rellationship client with server 
+// Styled componnent for using CSS in source
 import React, { useEffect, useState, useRef } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { io } from "socket.io-client";
 import styled from "styled-components";
 import { allUsersRoute, host } from "../utils/APIRoutes";
+// Add Components to chat route
 import ChatContainer from "../components/ChatContainer";
 import Contacts from "../components/Contacts";
 import Welcome from "../components/Welcome";
@@ -14,6 +19,7 @@ export default function Chat() {
   const [contacts, setContacts] = useState([]);
   const [currentChat, setCurrentChat] = useState(undefined);
   const [currentUser, setCurrentUser] = useState(undefined);
+  // User Authorization check
   useEffect(async () => {
     if (!localStorage.getItem(process.env.REACT_APP_LOCALHOST_KEY)) {
       navigate("/login");
@@ -25,13 +31,14 @@ export default function Chat() {
       );
     }
   }, []);
+  // Clinet websocket
   useEffect(() => {
     if (currentUser) {
       socket.current = io(host);
       socket.current.emit("add-user", currentUser._id);
     }
   }, [currentUser]);
-
+  // Fetch user information
   useEffect(async () => {
     if (currentUser) {
       if (currentUser.isAvatarImageSet) {
@@ -60,7 +67,7 @@ export default function Chat() {
     </>
   );
 }
-
+// Base chat route CSS code
 const Container = styled.div`
   height: 100vh;
   width: 100vw;
@@ -73,7 +80,7 @@ const Container = styled.div`
   .container {
     height: 85vh;
     width: 85vw;
-    background-color: #02040f;
+    background-color: #001219;
     display: grid;
     grid-template-columns: 25% 75%;
     @media screen and (min-width: 720px) and (max-width: 1080px) {

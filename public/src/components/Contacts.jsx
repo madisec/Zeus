@@ -6,6 +6,7 @@ export default function Contacts({ contacts, changeChat }) {
   const [currentUserName, setCurrentUserName] = useState(undefined);
   const [currentUserImage, setCurrentUserImage] = useState(undefined);
   const [currentSelected, setCurrentSelected] = useState(undefined);
+  // Fetch current user data and all user data
   useEffect(async () => {
     const data = await JSON.parse(
       localStorage.getItem(process.env.REACT_APP_LOCALHOST_KEY)
@@ -78,7 +79,7 @@ const Container = styled.div`
       height: 2rem;
     }
     h3 {
-      color: white;
+      color: #0a9396;
       text-transform: uppercase;
     }
   }
@@ -91,13 +92,13 @@ const Container = styled.div`
     &::-webkit-scrollbar {
       width: 0.2rem;
       &-thumb {
-        background-color: #ffffff39;
+        background-color: #03071e;
         width: 0.1rem;
         border-radius: 1rem;
       }
     }
     .contact {
-      background-color: #001427;
+      background-color: #001219;
       min-height: 5rem;
       cursor: pointer;
       width: 90%;
@@ -114,12 +115,12 @@ const Container = styled.div`
       }
       .username {
         h3 {
-          color: white;
+          color: #ee9b00;
         }
       }
     }
     .selected {
-      background-color: #9a86f3;
+      background-color: #005f73;
     }
   }
 
@@ -137,7 +138,7 @@ const Container = styled.div`
     }
     .username {
       h2 {
-        color: #011627;
+        color: #001219;
       }
     }
     @media screen and (min-width: 720px) and (max-width: 1080px) {

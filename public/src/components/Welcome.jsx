@@ -20,7 +20,7 @@ export default function Welcome() {
     </Container>
   );
 }
-
+// Welocome component for aftering login or regist regist and load chat route.
 const Container = styled.div`
   display: flex;
   justify-content: center;

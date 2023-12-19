@@ -17,6 +17,7 @@ export default function Login() {
     draggable: true,
     theme: "dark",
   };
+  // Checkig login or not login user.
   useEffect(() => {
     if (localStorage.getItem(process.env.REACT_APP_LOCALHOST_KEY)) {
       navigate("/");
@@ -26,7 +27,7 @@ export default function Login() {
   const handleChange = (event) => {
     setValues({ ...values, [event.target.name]: event.target.value });
   };
-
+  // Validating user input information.
   const validateForm = () => {
     const { username, password } = values;
     if (username === "") {
@@ -60,7 +61,7 @@ export default function Login() {
       }
     }
   };
-
+  // Login elements
   return (
     <>
       <FormContainer>
@@ -92,7 +93,7 @@ export default function Login() {
     </>
   );
 }
-
+// Login CSS source
 const FormContainer = styled.div`
   height: 100vh;
   width: 100vw;
@@ -101,7 +102,7 @@ const FormContainer = styled.div`
   justify-content: center;
   gap: 1rem;
   align-items: center;
-  background-color: #131324;
+  background-color: #001219;
   .brand {
     display: flex;
     align-items: center;
@@ -111,7 +112,7 @@ const FormContainer = styled.div`
       height: 5rem;
     }
     h1 {
-      color: white;
+      color: #94d2bd;
       text-transform: uppercase;
     }
   }
@@ -127,18 +128,18 @@ const FormContainer = styled.div`
   input {
     background-color: transparent;
     padding: 1rem;
-    border: 0.1rem solid #4e0eff;
+    border: 0.1rem solid #00b4d8;
     border-radius: 0.4rem;
     color: white;
     width: 100%;
     font-size: 1rem;
     &:focus {
-      border: 0.1rem solid #997af0;
+      border: 0.1rem solid #ee9b00;
       outline: none;
     }
   }
   button {
-    background-color: #4e0eff;
+    background-color: #005f73;
     color: white;
     padding: 1rem 2rem;
     border: none;
@@ -148,14 +149,15 @@ const FormContainer = styled.div`
     font-size: 1rem;
     text-transform: uppercase;
     &:hover {
-      background-color: #4e0eff;
+      background-color: #eae0d5;
+      color: #005f73;
     }
   }
   span {
-    color: white;
+    color: #94d2bd;
     text-transform: uppercase;
     a {
-      color: #4e0eff;
+      color: #005f73;
       text-decoration: none;
       font-weight: bold;
     }
